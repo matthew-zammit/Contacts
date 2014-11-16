@@ -1,0 +1,13 @@
+<h2>New Contact</h2>
+
+<form name="NewContact" novalidate>
+<form-field record="contact" field="firstName" live="false" required="true"></form-field>
+<form-field record="contact" field="lastName" live="false" required="true"></form-field>
+<form-field ng-repeat="(k,v) in contact | filterKey : 'firstName' | filterKey: 'lastName'" record='contact' field='{{k}}' live='false'></form-field>
+<new-field record="contact" live="false"></new-field>
+<div class="row form-group">
+    <div class="col-sm-12">
+      <button class="btn btn-primary" ng-click="save()"> Create Contact</button>
+    </div>
+</div>
+</form>

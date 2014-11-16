@@ -1,0 +1,18 @@
+<h2>{{contact.firstName[0]}} {{contact.lastName[0]}}</h2>
+<!--form fields-->
+<form name="editContact" class="form-horizontal">
+<form-field record="contact" field="firstName" required="true"></form-field>
+<form-field record="contact" field="lastName" required="true"></form-field>
+<!--{Key:["value","value_type"]-->
+<form-field ng-repeat="(k,v) in contact | filterKey:'firstName'|filterKey:'lastName'|filterKey:'userId' |
+filterKey:'id'" record="contact" field="{{k}}"></form-field>
+<new-field record="contact"></new-field>
+
+<div class="row form-group">
+  <div class="col-sm-offset-2">
+    <button type="button" class="btn btn-danger" ng-click="delete()">
+      Delete Contact
+    </button>
+  </div>
+</div>
+</form>
